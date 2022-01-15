@@ -37,15 +37,11 @@ const LEGEND_DATA = [
 
 function Legend({ layer }) {
 	const map = useMap()
-
-	console.log("lll :  ", layer)
-
 	useEffect(() => {
 		if (!map) return
 		const legend = LEGEND_DATA.filter(el => el.name === layer)
 		const legendContainer = L.control({ position: legend[0].position })
 		legendContainer.onAdd = () => {
-			console.log(legend)
 			const div = L.DomUtil.create("div", "legend")
 			div.innerHTML = `<div class='w-full text-xs font-light px-5 py-1 static top-15 left-20 z-50 border border-cyan-600  bg-white rounded-lg text-cyan-800 opacity-1'>
 			<div class='flex justify-evenly items-center tracking-widest'>

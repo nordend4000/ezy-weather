@@ -26,7 +26,7 @@ function NavBar() {
 			</div>
 			<div className='flex flex-row mr-12 text-cyan-100 text-lg tracking-widest  text-center'>
 				<ActiveLink href='/'>HOME</ActiveLink>
-				<ActiveLink href='/map'>WEATHER MAP</ActiveLink>
+				<ActiveLink href='/map'>WEATHER MAPS</ActiveLink>
 				<ActiveLink href='/my-favorites'>MY FAVORITES</ActiveLink>
 				<ActiveLink href='/about'>ABOUT</ActiveLink>
 				<ActiveLink href='/' className='cursor-pointer'>

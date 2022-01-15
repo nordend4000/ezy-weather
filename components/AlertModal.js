@@ -18,6 +18,7 @@ function AlertModal({ setCenterMap, setShare, defaultCenter }) {
 			setOpenModal(false)
 			setShare(true)
 		}
+		// eslint-disable-next-line
 	}, [])
 
 	const alertModal = () => {

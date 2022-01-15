@@ -27,11 +27,9 @@ function DynamicLegend() {
 	const [layer, setLayer] = useState(["Precipitation"])
 
 	const add = useMapEvent("overlayadd", e => {
-		//console.log("zz", e)
 		setLayer([...layer, e.name])
 	})
 	const remove = useMapEvent("overlayremove", e => {
-		//console.log("zz2", e)
 		if (layer.includes(e.name)) {
 			let array = layer.filter(entry => entry !== e.name)
 			setLayer(array)

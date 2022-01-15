@@ -10,7 +10,7 @@ function Footer({ openSearch, setOpenSearch }) {
 	const [render, setRender] = useState(true)
 	useEffect(() => {
 		if (router.asPath === "/map") setRender(false)
-	}, [])
+	}, [router.asPath])
 	return (
 		<>
 			{openSearch && (

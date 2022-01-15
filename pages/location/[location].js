@@ -1,8 +1,8 @@
 import React from "react"
+import moment from "moment-timezone"
 import TodaysWeather from "../../components/TodaysWeather"
 import HourlyWeather from "../../components/HourlyWeather"
 import WeeklyWeather from "../../components/WeeklyWeather"
-import moment from "moment-timezone"
 import Layout from "../../components/Layout"
 
 export async function getServerSideProps(context) {
@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
 		}
 	}
 	const elevation = await fetch(
-		`https://maps.googleapis.com/maps/api/elevation/json?locations=${lat}%2C${lng}&key=${process.env.API_KEY_AUTOCOMPLETE}`,
+		`https://maps.googleapis.com/maps/api/elevation/json?locations=${lat}%2C${lng}&key=${process.env.NEXT_PUBLIC_API_KEY_AUTOCOMPLETE}`,
 	)
 	const data_elevation = await elevation.json()
 	if (!data_elevation) {
@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
 		}
 	}
 	const reverse = await fetch(
-		`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lng}&limit=5&appid=${process.env.API_KEY_WEATHER}`,
+		`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lng}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY_WEATHER}`,
 	)
 	const data_reverse = await reverse.json()
 	if (!data_reverse) {
@@ -38,9 +38,10 @@ export async function getServerSideProps(context) {
 		}
 	}
 	const res = await fetch(
-		`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.API_KEY_WEATHER}&exclude=minutely&units=metric`,
+		`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.NEXT_PUBLIC_API_KEY_WEATHER}&exclude=minutely&units=metric`,
 	)
 	const data_weather = await res.json()
+
 	if (!data_weather) {
 		return {
 			notFound: true,
