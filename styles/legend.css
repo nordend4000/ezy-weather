@@ -1,0 +1,73 @@
+.Line {
+	border-radius: 4pt;
+	height: 4px;
+	opacity: 1;
+	width: 90%;
+	margin: 5px auto;
+	border-left: 1px solid #f2f2f2;
+	border-bottom: 1px solid #f2f2f2;
+}
+.Pressure-line {
+	background-image: linear-gradient(
+		to right,
+		rgb(0, 115, 255, 0.65) 0%,
+		rgb(0, 170, 255, 0.65) 8.350592328721754%,
+		rgb(75, 208, 214, 0.65) 24.91922790158231%,
+		rgb(141, 231, 199, 0.65) 41.48786347444287%,
+		rgb(176, 247, 32, 0.65) 49.77218126087315%,
+		rgb(240, 184, 0, 0.65) 58.05649904730342%,
+		rgb(251, 85, 21, 0.65) 74.62513462016398%,
+		rgb(243, 54, 59, 0.65) 91.19377019302453%,
+		rgba(198, 0, 0, 0.65) 100.00000000000001%
+	);
+}
+.Temperatures-line {
+	background-image: linear-gradient(
+		to right,
+		rgba(130, 22, 146, 1) 0%,
+		rgba(130, 22, 146, 1) 5%,
+		rgba(130, 87, 219, 1) 10%,
+		rgba(32, 140, 236, 1) 20%,
+		rgb(61, 172, 231) 30%,
+		rgb(22, 159, 189) 40%,
+		rgba(35, 221, 221, 1) 50%,
+		rgb(75, 224, 202, 1) 60%,
+		rgba(194, 255, 40, 1) 70%,
+		rgba(255, 240, 40, 1) 80%,
+		rgba(255, 194, 40, 1) 90%,
+		rgba(252, 128, 20, 1) 100%
+	);
+}
+.Clouds-line {
+	background-image: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 0.2) 0%,
+		rgba(252, 251, 255, 0.4) 25%,
+		rgba(247, 247, 255, 0.5) 50%,
+		rgba(243, 242, 255, 1) 75%,
+		rgba(240, 240, 255, 1) 100%
+	);
+}
+.Wind-line {
+	background-image: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(179, 100, 188, 0.7) 25%,
+		rgba(116, 76, 172, 0.8) 50%,
+		rgba(70, 0, 175, 0.65) 75%,
+		rgba(13, 17, 38, 0.65) 100.00000000000001%
+	);
+}
+.Precipitation-line {
+	background-image: linear-gradient(
+		to right,
+		rgba(225, 200, 100, 0) 0%,
+		rgba(150, 150, 170, 0.3) 25%,
+		rgba(110, 110, 205, 0.5) 50%,
+		rgba(80, 80, 225, 0.7) 75%,
+		rgba(20, 20, 255, 0.9) 100%
+	);
+}
+.legend {
+	min-width: 300px;
+}

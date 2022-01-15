@@ -1,0 +1,37 @@
+.swal-overlay {
+	background-color: rgba(35, 83, 94, 0.749);
+}
+.swal-modal {
+	background-color: white;
+	border: 3px solid #fb923c;
+	border-radius: 5px;
+}
+.swal-title {
+	color: #0891b2;
+	color: #fdba74;
+	color: #fb923c;
+	padding: 10%;
+}
+.swal-text {
+	color: #155e75;
+}
+.swal-button {
+	padding: 7px 19px;
+	border-radius: 2px;
+	background-color: #155e75;
+	font-size: 12px;
+	border: 1px solid #0891b2;
+	border-radius: 10px;
+	text-shadow: 0px -1px 0px #0890b268(0, 0, 0, 0.3);
+}
+.swal-button--once {
+	background-color: #155e75;
+}
+.swal-button--no {
+	color: #155e75;
+	background-color: orange;
+}
+.swal-button:hover {
+	background-color: white;
+	color: #155e75;
+}
