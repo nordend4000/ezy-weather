@@ -35,7 +35,7 @@ function Footer({ openSearch, setOpenSearch }) {
 						<a className='mr-10  hover:text-orange-400'>HOME</a>
 					</Link>
 					<Link href='/map'>
-						<a className='mr-10  hover:text-orange-400'>WEATHER MAP</a>
+						<a className='mr-10  hover:text-orange-400'>WEATHER MAPS</a>
 					</Link>
 					<Link href='/my-favorites'>
 						<a className='mr-10 hover:text-orange-400'>MY FAVORITES</a>
