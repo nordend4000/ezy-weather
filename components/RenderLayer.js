@@ -100,7 +100,7 @@ function RenderLayer() {
 				setCenterMap={setCenterMap}
 				defaultCenter={DEFAULT_CENTER}
 			/>
-			{typeof window !== "undefined" && centerMap != null && (
+			{centerMap != null && (
 				<>
 					<MapContainer
 						center={centerMap}
