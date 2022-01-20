@@ -61,9 +61,9 @@ function IsFavorite({ url }) {
 	}
 
 	return (
-		<div className='w-full mx-auto flex justify-center pt-1'>
+		<div className='w-full mx-auto flex justify-center sm:pt-1 '>
 			<div
-				className='text-xl text-orange-700 cursor-pointer hover:text-orange-400 pt-1'
+				className='text-xl text-orange-700 dark:text-orange-300 cursor-pointer hover:text-orange-400 dark:hover:text-orange-400 pt-1  w-full'
 				onMouseEnter={() => setHovered1(true)}
 				onMouseLeave={() => setHovered1(false)}>
 				{isFavorite ? (
@@ -76,14 +76,14 @@ function IsFavorite({ url }) {
 					</div>
 				)}
 				<div
-					className={`ml-3 text-xs text-orange-300 px-3 py-2 mt-1 bg-orange-50 rounded-xl ${
-						!hovered1 ? "invisible" : "visible"
+					className={`text-center sm:ml-3 text-xs text-orange-300 px-3 py-2 mt-1 bg-orange-50 dark:bg-cyan-900 rounded-xl ${
+						!hovered1 ? "hidden" : "block"
 					}`}>
-					{!isFavorite ? "Add to my Favorite" : "Remove from Favorite"}
+					{!isFavorite ? "Add Favorite" : "Remove Favorite"}
 				</div>
 			</div>
 			<div
-				className='text-2xl text-orange-700 cursor-pointer hover:text-orange-400'
+				className='text-2xl text-orange-700 dark:text-orange-300 cursor-pointer hover:text-orange-400 dark:hover:text-orange-400  w-full'
 				onMouseEnter={() => setHovered2(true)}
 				onMouseLeave={() => setHovered2(false)}>
 				<div className='flex justify-center'>
@@ -91,8 +91,8 @@ function IsFavorite({ url }) {
 					<IoSyncSharp onClick={reloadPage} />
 				</div>
 				<div
-					className={`ml-3 text-xs text-orange-300 px-3 py-2 mt-1 bg-orange-50 rounded-xl ${
-						!hovered2 ? "invisible" : "visible"
+					className={`text-center sm:ml-3 text-xs text-orange-300 px-3 py-2 mt-1 bg-orange-50 dark:bg-cyan-900 rounded-xl ${
+						!hovered2 ? "hidden" : "block"
 					}`}>
 					Update weather
 				</div>

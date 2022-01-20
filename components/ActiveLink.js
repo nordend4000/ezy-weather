@@ -8,9 +8,9 @@ function ActiveLink({ children, href }) {
 		router.push(href)
 	}
 	return (
-		<Link href={href}>
+		<Link href={href} scroll={false}>
 			<a
-				className='mr-10  hover:text-orange-300 transition ease-in duration-200  '
+				className='sm:mr-7 lg:mr-10  hover:text-orange-300 transition ease-in duration-200  '
 				onClick={handleClick}>
 				<span
 					className={

@@ -51,27 +51,27 @@ function Favorites() {
 			{favorites &&
 				favorites.map(fav => (
 					<div key={fav.place} className='flex justify-start p-5'>
-						<h3 className='capitalize text-2xl text-cyan-600'>
+						<h3 className='capitalize text-lg sm:text-2xl text-cyan-600'>
 							{fav.location}
-							<span className='uppercase mx-5 text-sm text-cyan-500'>
+							<span className='uppercase mx-5 text-xs sm:text-sm text-cyan-500'>
 								{fav.country}
 							</span>
 						</h3>
-						<Link href={`/location/${fav.url}`}>
-							<a className='mr-10 hover:text-orange-400'>
-								<BiWindowOpen className='mt-3' />
+						<Link href={`/location/${fav.url}`} scroll={false}>
+							<a className='mr-6 ml-5 sm:mr-10 hover:text-orange-400'>
+								<BiWindowOpen className='mt-2 sm:mt-3' />
 							</a>
 						</Link>
 						<div
 							onClick={() => handleRemoveFavorite(fav)}
-							className='mr-10 hover:text-red-400  cursor-pointer'>
-							<ImBin className='mt-3' />
+							className='mr-6 ml-5 sm:mr-10 hover:text-red-400  cursor-pointer'>
+							<ImBin className='mt-2 sm:mt-3' />
 						</div>
 					</div>
 				))}
 			{!favorites ||
 				(favorites && favorites.length === 0 && (
-					<p className='ml-8 text-lg text-cyan-600 p-6'>
+					<p className='ml-8 text-lg text-cyan-600 dark:text-cyan-200 p-6'>
 						You don&apos;t have any favorite yet ...
 					</p>
 				))}

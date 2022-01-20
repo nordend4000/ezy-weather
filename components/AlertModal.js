@@ -9,14 +9,19 @@ function AlertModal({ setCenterMap, setShare, defaultCenter }) {
 	useEffect(() => {
 		// check session
 		const sessionCheck = window.sessionStorage.getItem("position")
-		if (sessionCheck == null || sessionCheck === "false") {
-			setSession(false)
-			setOpenModal(true)
+		if (sessionCheck && sessionCheck === "false") {
+			setSession(true)
+			setOpenModal(false)
+			setShare(false)
 		}
 		if (sessionCheck && sessionCheck === "true") {
 			setSession(true)
 			setOpenModal(false)
 			setShare(true)
+		}
+		if (sessionCheck == null || sessionCheck === "") {
+			setSession(false)
+			setOpenModal(true)
 		}
 		// eslint-disable-next-line
 	}, [])
@@ -42,11 +47,14 @@ function AlertModal({ setCenterMap, setShare, defaultCenter }) {
 					text: "No Thanks",
 					value: "no",
 				},
+				never: {
+					text: "Never",
+					value: "never",
+				},
 			},
 		}).then(value => {
 			switch (value) {
 				case "no":
-					if (typeof window !== "undefined") handleSession("position", "false")
 					setSession(false)
 					setCenterMap(defaultCenter)
 					swal("Your position won't be shared", {
@@ -55,8 +63,17 @@ function AlertModal({ setCenterMap, setShare, defaultCenter }) {
 						timer: 2400,
 					})
 					break
-				case "once":
+				case "never":
 					if (typeof window !== "undefined") handleSession("position", "false")
+					setSession(false)
+					setCenterMap(defaultCenter)
+					swal("Your position will never be shared", {
+						icon: "success",
+						button: false,
+						timer: 2400,
+					})
+					break
+				case "once":
 					setShare(true)
 					setSession(false)
 					swal("Your position will be shared only once", {
@@ -74,7 +91,6 @@ function AlertModal({ setCenterMap, setShare, defaultCenter }) {
 						button: false,
 						timer: 2400,
 					})
-					//set session
 					break
 				default:
 					swal("Your position won't be shared", {

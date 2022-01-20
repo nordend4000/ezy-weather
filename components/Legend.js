@@ -7,7 +7,7 @@ const LEGEND_DATA = [
 		name: "Precipitation",
 		unit: "mm",
 		numbers: [0, 35, 70, 105, 140],
-		position: "bottomright",
+		position: "bottomleft",
 	},
 	{
 		name: "Clouds",
@@ -19,7 +19,7 @@ const LEGEND_DATA = [
 		name: "Pressure",
 		unit: "hPa",
 		numbers: [950, 980, 1010, 1040, 1070],
-		position: "bottomright",
+		position: "bottomleft",
 	},
 	{
 		name: "Wind",
@@ -31,7 +31,7 @@ const LEGEND_DATA = [
 		name: "Temperatures",
 		unit: "&deg;C",
 		numbers: [-40, -20, 0, 20, 40],
-		position: "bottomright",
+		position: "bottomleft",
 	},
 ]
 
@@ -44,8 +44,7 @@ function Legend({ layer }) {
 		legendContainer.onAdd = () => {
 			const div = L.DomUtil.create("div", "legend")
 			div.innerHTML = `<div class='w-full text-xs font-light px-5 py-1 static top-15 left-20 z-50 border border-cyan-600  bg-white rounded-lg text-cyan-800 opacity-1'>
-			<div class='flex justify-evenly items-center tracking-widest'>
-			<div >LEGEND :</div>
+			<div class='flex justify-center items-center tracking-widest'>
 			<div class=' ml-3'><b>${legend[0].name}, ${legend[0].unit}</b></div>
 			</div>		
 			<div>

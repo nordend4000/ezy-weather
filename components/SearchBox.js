@@ -5,22 +5,12 @@ import { geocodeByAddress, getLatLng } from "react-places-autocomplete"
 
 export default function SearchBox({ placeholder }) {
 	const router = useRouter()
-	const [render, setRender] = useState(true)
 	const [query, setQuery] = useState("")
-	const [coordinate, setCoordinate] = useState({
-		lat: null,
-		lng: null,
-	})
-
-	useEffect(() => {
-		if (router.asPath === "/map") setRender(false)
-	}, [router])
 
 	const handleSelect = async value => {
 		const results = await geocodeByAddress(value)
 		const coord = await getLatLng(results[0])
 		setQuery(value)
-		setCoordinate(coord)
 		let url = value.split(",")
 		let countryArray = url.slice(-1)
 		let country = countryArray[0].toLowerCase().trim()
@@ -37,52 +27,45 @@ export default function SearchBox({ placeholder }) {
 
 	return (
 		<div className=''>
-			{render && (
-				<PlacesAutocomplete
-					value={query}
-					onChange={setQuery}
-					onSelect={handleSelect}
-					highlightFirstSuggestion>
-					{({
-						getInputProps,
-						suggestions,
-						getSuggestionItemProps,
-						loading,
-					}) => (
-						<div
-							className='w-screen flex flex-col justify-center py-8'
-							key={suggestions.description}>
-							<input
-								{...getInputProps({
-									placeholder: placeholder,
-									className:
-										"w-2/5 border-2 mx-auto border-cyan-600 rounded-md p-3 focus:text-orange-500 placeholder:text-cyan-600",
+			<PlacesAutocomplete
+				value={query}
+				onChange={setQuery}
+				onSelect={handleSelect}
+				highlightFirstSuggestion>
+				{({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+					<div
+						className='flex flex-col justify-center pt-3 '
+						key={suggestions.description}>
+						<input
+							{...getInputProps({
+								placeholder: placeholder,
+								className:
+									"w-full sm:w-3/4 border-2 mx-auto  bg-cyan-50 dark:bg-cyan-800 border-cyan-600 rounded-md p-2 text-xs sm:text-base sm:p-3 focus:text-orange-500 placeholder:text-cyan-600 dark:placeholder:text-cyan-200",
+							})}
+						/>
+						{query && (
+							<ul className='w-full sm:w-3/4 text-cyan-800 dark:text-cyan-600 bg-cyan-50 dark:bg-cyan-900  mx-auto rounded-xs text-xs sm:text-base'>
+								{loading && <div>Loading...</div>}
+								{suggestions.map(suggestion => {
+									const style = suggestion.active
+										? { backgroundColor: "#cffafe", cursor: "pointer" }
+										: { cursor: "pointer" }
+									return (
+										<li
+											className='p-1'
+											key={suggestion.description}
+											{...getSuggestionItemProps(suggestion, {
+												style,
+											})}>
+											<span>{suggestion.description}</span>
+										</li>
+									)
 								})}
-							/>
-							{query && (
-								<ul className='text-orange-500 w-2/5 mx-auto rounded-xs'>
-									{loading && <div>Loading...</div>}
-									{suggestions.map(suggestion => {
-										const style = suggestion.active
-											? { backgroundColor: "#cffafe", cursor: "pointer" }
-											: { backgroundColor: "#ffffff", cursor: "pointer" }
-										return (
-											<li
-												className='p-1 text-sm'
-												key={suggestion.description}
-												{...getSuggestionItemProps(suggestion, {
-													style,
-												})}>
-												<span>{suggestion.description}</span>
-											</li>
-										)
-									})}
-								</ul>
-							)}
-						</div>
-					)}
-				</PlacesAutocomplete>
-			)}
+							</ul>
+						)}
+					</div>
+				)}
+			</PlacesAutocomplete>
 		</div>
 	)
 }

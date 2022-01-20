@@ -106,26 +106,26 @@ function RenderLayer() {
 						center={centerMap}
 						zoom={4}
 						scrollWheelZoom={false}
-						style={{ height: "88vh", width: "99vw" }}>
+						style={{ height: "88vh", width: "100%" }}>
 						<LayersControl position='topright'>
 							<LayersControl.BaseLayer checked name='Open Street Map'>
 								<TileLayer
 									opacity='0.40'
-									attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+									attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 									url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 								/>
 							</LayersControl.BaseLayer>
 							<LayersControl.BaseLayer name='Landscape - Thunderforest'>
 								<TileLayer
 									opacity='0.40'
-									attribution='&copy; <a href="https://www.thunderforest.com/terms/">Thunderforest</a> contributors'
+									attribution='&copy; <a href="https://www.thunderforest.com/terms/">Thunderforest</a>'
 									url={`https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=${process.env.NEXT_PUBLIC_API_KEY_THUNDERFOREST}`}
 								/>
 							</LayersControl.BaseLayer>
 							<LayersControl.BaseLayer name='Black And White'>
 								<TileLayer
 									opacity='0.40'
-									attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+									attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 									url='https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
 								/>
 							</LayersControl.BaseLayer>
@@ -137,7 +137,7 @@ function RenderLayer() {
 										checked={layer.path === "precipitation_new" ? true : false}>
 										<TileLayer
 											opacity='1'
-											attribution='&copy; <a href="https://www.openweathermap.org/">OpenWeatherMap</a> contributors'
+											attribution='&copy; <a href="https://www.openweathermap.org/">OpenWeatherMap</a>'
 											url={`https://tile.openweathermap.org/map/${layer.path}/{z}/{x}/{y}.png?appid=${process.env.NEXT_PUBLIC_API_KEY_WEATHER}`}
 										/>
 									</LayersControl.Overlay>

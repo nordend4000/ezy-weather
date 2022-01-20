@@ -1,11 +1,13 @@
+import React, { useEffect } from "react"
+import NProgress from "nprogress"
+import Script from "next/script"
+import Router from "next/router"
+import { AnimatePresence } from "framer-motion"
+import { ThemeProvider } from "next-themes"
 import "../styles/globals.css"
 import "../styles/nprogress.css"
 import "../styles/legend.css"
 import "../styles/alert.css"
-import NProgress from "nprogress"
-import React, { useEffect } from "react"
-import Router from "next/router"
-import Script from "next/script"
 
 function MyApp({ Component, pageProps }) {
 	useEffect(() => {
@@ -25,16 +27,22 @@ function MyApp({ Component, pageProps }) {
 
 	return (
 		<>
-			<Component {...pageProps} />
+			{" "}
+			<AnimatePresence
+				exitBeforeEnter
+				initial={false}
+				onExitComplete={() => window.scrollTo(0, 0)}>
+				<ThemeProvider attribute='class'>
+					<Component {...pageProps} />
+				</ThemeProvider>
+			</AnimatePresence>
 			<Script
 				strategy='beforeInteractive'
-				src={`https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY_AUTOCOMPLETE}&libraries=places&language=en`}
+				src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_API_KEY_AUTOCOMPLETE}&libraries=places&language=en`}
 			/>
 			<Script
 				strategy='beforeInteractive'
 				src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'
-				// integrity='sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=='
-				// crossOrigin='anonymous'
 			/>
 		</>
 	)

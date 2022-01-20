@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/Layout"
-//import RenderLayer from "../components/RenderLayer"
 import dynamic from "next/dynamic"
 
 const RenderLayer = dynamic(() => import("../components/RenderLayer"), {
