@@ -101,6 +101,7 @@ function NavBar() {
 								<FaSearchLocation />
 							</ActiveLink>
 						</div>
+						<ToggleMode />
 					</nav>
 				)}
 			</div>
