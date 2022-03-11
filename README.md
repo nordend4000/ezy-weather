@@ -5,9 +5,9 @@ every location in the world. Check out the latest weather maps for
 precipitation, temperature, wind, pressure and clouds worldwide.
 
 
-<a href="https//:ezy-weather.vercel.com"><img src="https://res.cloudinary.com/dokbrxcp2/image/upload/v1647001237/images/ezy_copie_lutunx.png" alt="Weather app"/></a>
+<a href="https://ezy-weather.vercel.com"><img src="https://res.cloudinary.com/dokbrxcp2/image/upload/v1647001237/images/ezy_copie_lutunx.png" alt="Weather app"/></a>
 
-### https//:ezy-weather.vercel.com
+### https://ezy-weather.vercel.com
 
 <img src="https://res.cloudinary.com/dokbrxcp2/image/upload/v1647005684/images/weather_copie_cc4ijh.png" alt="Weather app"/>
 
